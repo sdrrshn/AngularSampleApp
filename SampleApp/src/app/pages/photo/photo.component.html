@@ -1,0 +1,12 @@
+<div
+  id="carouselExampleSlidesOnly"
+  class="carousel slide : container"
+  data-ride="carousel"
+  *ngFor="let item of photo$ | async"
+>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="rounded-circle" src="{{ item.url }}" alt="Card image cap" />
+    </div>
+  </div>
+</div>

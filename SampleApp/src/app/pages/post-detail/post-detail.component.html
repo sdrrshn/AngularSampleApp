@@ -1,0 +1,32 @@
+<!-- <button (click)="redirectToPosts()" style="color: burlywood"></button>
+
+
+<div class="card" *ngIf="post$ | async; let post">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.body }}</p>
+  </div> -->
+
+<div class="card text-center" *ngIf="post$ | async; let post">
+  <h1 class="card-header">Makale</h1>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.body }}</p>
+  </div>
+  <div class="card-footer text-muted">
+    <button (click)="getDetail(template)" style="border: 0px">
+      <u>yorumları oku</u>
+    </button>
+  </div>
+</div>
+
+<ng-template #template>
+  <h1>Yorumlar</h1>
+
+  <div class="card mb-3" *ngFor="let commant of commants$ | async">
+    <div class="card-body">
+      <h5 class="card-title">-{{ commant.email }}</h5>
+      <p class="card-text">yorum : {{ commant.body }}</p>
+    </div>
+  </div>
+</ng-template>

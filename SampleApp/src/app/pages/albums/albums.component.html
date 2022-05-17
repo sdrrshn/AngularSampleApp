@@ -1,0 +1,84 @@
+<!-- <div *ngFor="let item of albums$ | async">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-dark">
+      {{ item.title }}
+      <a
+        (click)="getAlbumsDetail(item.userId, template)"
+        class="btn btn-primary"
+        >Post By</a
+      >
+    </li>
+  </ul>
+</div> -->
+<!-- <div *ngFor="let item of albums$ | async" class="position-relative">
+  <li class="list-group-item">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="text-left , text-uppercase,font-italic">
+          {{ item.title }}
+        </h1>
+      </div>
+    </div>
+  </li>
+</div> -->
+
+<!-- <div
+  class="list-group,shadow-none p-3 mb-5 bg-light rounded container "
+  *ngFor="let item of albums$ | async"
+>
+  <h3>
+    <button
+      (click)="getAlbumsDetail(item.userId, template)"
+      class="list-group-item list-group-item-action flex-column align-items-start active"
+    >
+      <div class="d-flex w-100 justify-content-between text-left"></div>
+      <p class="mb-1">
+        {{ item.title }}
+      </p>
+    </button>
+  </h3>
+</div> -->
+
+<div class="card">
+  <h1 class="card-header">Albümler</h1>
+  <div class="card-body" *ngFor="let item of albums$ | async">
+    <button
+      (click)="getAlbumsDetail(item.userId, template)"
+      class="list-group-item list-group-item-action flex-column align-items-start"
+    >
+      <h5 class="card-title">{{ item.title }}</h5>
+    </button>
+  </div>
+</div>
+<ng-template #template>
+  <div
+    class="container marketing"
+    style="margin-top: 2rem"
+    *ngIf="photo$ | async; let user"
+  >
+    <div class="row">
+      <div class="col-lg-5" *ngFor="let item of photo$ | async" class="card">
+        <hr style="margin-left: 2rem" class="featurette-divider" />
+        <img
+          class="rounded-circle"
+          src="{{ item.url }}"
+          alt="Generic placeholder image"
+          width="140"
+          height="140"
+        />
+        <h2>Açıklama</h2>
+        <p>{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- <ng-template #template>
+  <div *ngIf="photo$ | async; let user">
+    <div *ngFor="let item of photo$ | async" class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
